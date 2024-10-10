@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger Paradise</title>
+    <link rel="stylesheet" href="kats.css">
+</head>
+<body>
+    <header>
+        <h1>BURGER PARADISE</h1>
+    </header>
+
+    <nav>
+        <a href="#" onclick="mostrarSeccion('inicio')">Inicio</a>
+        <a href="#" onclick="mostrarSeccion('productos')">Productos</a>
+        <a href="#" onclick="mostrarSeccion('historia')">Historia</a>
+        <a href="#" onclick="mostrarSeccion('contacto')">Contacto</a>
+    </nav>
+
+    <div id="contenido">
+        <div id="inicio" class="seccion">
+            <h2>Bienvenidos a Burger Paradise S.A</h2>
+            <p>Somos un restaurante que hace las mejores hamburguesas de Guatemala.</p>
+            <video width="320" height="540" controls>
+                <source src="hamburguesas.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div id="productos" class="seccion">
+            <h2>Nuestros Productos</h2>
+            <div class="slider">
+                <div class="producto">
+                    <img src="hamburguesas1.jpg" alt="Producto 1">
+                    
+                </div>
+            </div>
+            
+        </div>
+
+        <div id="historia" class="seccion">
+            <img src="mision.jpg" >
+        </div>
+
+        <div id="contacto" class="seccion">
+            <h2>Contáctanos</h2>
+            <form action="https://formspree.io/f/mdkonvyz" method="POST">
+  <label for="email">Email</label>
+  <input name="Email" id="email" type="email">
+  <label for="email">Nombre del Ciente</label>
+  <input name="Nombre" id="Nombre" type="name">
+   <label for="email">Mensaje</label>
+  <input name="Mensahe" id="Mensjae" type="msg">
+  <button type="submit">Enviar</button>
+</form>
+            </form>
+            <h3>Nuestra Ubicación</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d123536.58641496622!2d-90.58645365!3d14.6417889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a180655c3345%3A0x4a72c7815b867b25!2sGuatemala%20City%2C%20Guatemala!5e0!3m2!1sen!2s!4v1633653266754!5m2!1sen!2s" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <script>
+        function mostrarSeccion(id) {
+            var secciones = document.getElementsByClassName('seccion');
+            for (var i = 0; i < secciones.length; i++) {
+                secciones[i].style.display = 'none';
+            }
+            document.getElementById(id).style.display = 'block';
+        }
+
+        var productoActual = 0;
+        var productos = document.getElementsByClassName('producto');
+
+        function cambiarProducto(n) {
+            productos[productoActual].style.display = 'none';
+            productoActual = (productoActual + n + productos.length) % productos.length;
+            productos[productoActual].style.display = 'block';
+        }
+
+        mostrarSeccion('inicio');
+        cambiarProducto(0);
+
+        
+           
+            
+        
+    </script>
+</body>
+</html>
